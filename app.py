@@ -224,14 +224,25 @@ elif st.session_state.current_page == 'batch':
         "<style>.block-container { max-width: 100% !important; padding-left: 5vw !important; padding-right: 5vw !important; padding-top: 2rem !important; } [data-testid='stAppViewContainer'] > .main { justify-content: center !important; } </style>",
         unsafe_allow_html=True)
     batch_screen.render()
+
 elif st.session_state.current_page == 'compare':
+    # 1. 加载背景和爱心
     st.markdown('<div class="single-bg"></div>', unsafe_allow_html=True)
     st.markdown('<div class="bg-heart"></div>', unsafe_allow_html=True)
+
+    # 2. 包裹返回按钮
+    st.markdown('<div class="back-btn">', unsafe_allow_html=True)
     if st.button("← 返回平台首页"):
         st.session_state.current_page = 'home'
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
+    # 3. 强行应用和单分子页面一模一样的宽屏限制样式
+    st.markdown(
+        "<style>.block-container { max-width: 100% !important; padding-left: 5vw !important; padding-right: 5vw !important; padding-top: 2rem !important; } [data-testid='stAppViewContainer'] > .main { justify-content: center !important; } </style>",
+        unsafe_allow_html=True)
+
+    # 4. 渲染雷达图对比
     from views.advanced_tools import render_radar_comparison
 
     render_radar_comparison(st.session_state.get('history_data', []))
