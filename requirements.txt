@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+scikit-learn
+lightgbm
+shap
+rdkit
+plotly
+joblib
+pubchempy
+stmol
+py3Dmol
