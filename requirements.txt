@@ -12,3 +12,4 @@ stmol
 py3Dmol
 ipython_genutils
 ipywidgets
+matplotlib
